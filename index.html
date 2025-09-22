@@ -1,7 +1,454 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Doe - Professional Resume</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS Variables for consistent theming */
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --text-light: #777;
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 2rem;
+            --border-radius: 4px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f9f9f9;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--accent-color);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: var(--spacing-lg) 0;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--light-color);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-md);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--dark-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--box-shadow);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-sm) 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: var(--spacing-lg);
+        }
+
+        .nav-links a {
+            color: white;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Main Content */
+        main {
+            padding: var(--spacing-lg) 0;
+        }
+
+        section {
+            margin-bottom: var(--spacing-lg);
+            background: white;
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-md);
+            padding-bottom: var(--spacing-sm);
+            border-bottom: 2px solid var(--light-color);
+        }
+
+        h3 {
+            color: var(--secondary-color);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .section-item {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .date {
+            color: var(--text-light);
+            font-style: italic;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+            list-style: none;
+        }
+
+        .skill-tag {
+            background-color: var(--light-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .project-card {
+            border: 1px solid var(--light-color);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow);
+        }
+
+        .project-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: var(--spacing-md);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: var(--spacing-lg) 0;
+            margin-top: var(--spacing-lg);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-md);
+            margin: var(--spacing-md) 0;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        /* Project Pages */
+        .project-header {
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .project-image {
+            max-width: 100%;
+            border-radius: var(--border-radius);
+            margin: var(--spacing-md) 0;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: var(--spacing-md);
+            color: var(--secondary-color);
+            font-weight: 500;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--dark-color);
+                padding: var(--spacing-md);
+                box-shadow: var(--box-shadow);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            nav, footer {
+                display: none;
+            }
+            
+            section {
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+        }
+    </style>
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="John Doe" class="profile-img">
+            <h1>John Doe</h1>
+            <p>Computer Science Student</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:john.doe@knights.ucf.edu">john.doe@knights.ucf.edu</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <a href="https://linkedin.com/in/johndoe" target="_blank">linkedin.com/in/johndoe</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">JD</div>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#objective">Objective</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="project1.html">Project 1</a></li>
+                <li><a href="project2.html">Project 2</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Professional Objective -->
+        <section id="objective">
+            <h2>Professional Objective</h2>
+            <p>Motivated Computer Science student seeking an internship opportunity to apply programming skills and problem-solving abilities in a real-world environment. Passionate about software development, with a focus on creating efficient and user-friendly applications. Eager to contribute to a dynamic team while expanding knowledge in emerging technologies.</p>
+        </section>
+
+        <!-- Education -->
+        <section id="education">
+            <h2>Education</h2>
+            <div class="section-item">
+                <h3>University of Central Florida</h3>
+                <p class="date">Expected Graduation: May 2024</p>
+                <p>Bachelor of Science in Computer Science</p>
+                <p>GPA: 3.7/4.0</p>
+                <p>Relevant Coursework: Data Structures, Algorithms, Software Engineering, Database Systems, Web Development, Artificial Intelligence</p>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <article class="project-card">
+                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Task Management App" class="project-img">
+                    <div class="project-content">
+                        <h3>Task Management Application</h3>
+                        <p>A web-based application for organizing and tracking daily tasks with user authentication and cloud synchronization.</p>
+                        <a href="project1.html">View Project Details</a>
+                    </div>
+                </article>
+                <article class="project-card">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Data Visualization Tool" class="project-img">
+                    <div class="project-content">
+                        <h3>Data Visualization Tool</h3>
+                        <p>An interactive tool for visualizing complex datasets with multiple chart types and filtering options.</p>
+                        <a href="project2.html">View Project Details</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section id="skills">
+            <h2>Skills</h2>
+            <h3>Programming Languages</h3>
+            <ul class="skills-list">
+                <li class="skill-tag">Java</li>
+                <li class="skill-tag">Python</li>
+                <li class="skill-tag">JavaScript</li>
+                <li class="skill-tag">C++</li>
+                <li class="skill-tag">SQL</li>
+                <li class="skill-tag">HTML/CSS</li>
+            </ul>
+            
+            <h3>Frameworks & Technologies</h3>
+            <ul class="skills-list">
+                <li class="skill-tag">React</li>
+                <li class="skill-tag">Node.js</li>
+                <li class="skill-tag">Express</li>
+                <li class="skill-tag">MongoDB</li>
+                <li class="skill-tag">Git</li>
+                <li class="skill-tag">REST APIs</li>
+            </ul>
+            
+            <h3>Soft Skills</h3>
+            <ul class="skills-list">
+                <li class="skill-tag">Problem Solving</li>
+                <li class="skill-tag">Team Collaboration</li>
+                <li class="skill-tag">Communication</li>
+                <li class="skill-tag">Time Management</li>
+            </ul>
+        </section>
+
+        <!-- Awards & Honors -->
+        <section id="awards">
+            <h2>Awards & Honors</h2>
+            <div class="section-item">
+                <h3>Dean's List</h3>
+                <p class="date">Fall 2021, Spring 2022, Fall 2022</p>
+                <p>University of Central Florida</p>
+            </div>
+            <div class="section-item">
+                <h3>UCF Coding Competition</h3>
+                <p class="date">April 2022</p>
+                <p>2nd Place - Team Category</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 John Doe. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://linkedin.com/in/johndoe" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/johndoe" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="mailto:john.doe@knights.ucf.edu"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for mobile menu -->
+    <script>
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            document.getElementById('navLinks').classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
