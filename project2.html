@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 2 Title - Your Name</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Same CSS as index.html */
+        /* ... (copy the full CSS from above) ... */
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Project 2 Title</h1>
+            <p>Your Name - Computer Science Portfolio</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">YN</div>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#projects">All Projects</a></li>
+                <li><a href="project1.html">Previous Project</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Resume</a>
+        
+        <section>
+            <img src="project2-detail-image.jpg" alt="Project 2 Detailed View" class="project-image">
+            
+            <h2>Project Description</h2>
+            <p>Detailed description of your second project.</p>
+            
+            <h2>Technologies Used</h2>
+            <ul class="skills-list">
+                <li class="skill-tag">Technology A</li>
+                <li class="skill-tag">Technology B</li>
+                <li class="skill-tag">Technology C</li>
+            </ul>
+            
+            <h2>Skills Learned</h2>
+            <p>Describe the skills you developed while working on this project.</p>
+            
+            <h2>Project Timeline</h2>
+            <p>When you worked on this project.</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Your Name. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="mailto:your.email@knights.ucf.edu"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            document.getElementById('navLinks').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
