@@ -3,24 +3,325 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project 1 Title - Your Name</title>
+    <title>Task Management Application - John Doe</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Same CSS as index.html */
-        /* ... (copy the full CSS from above) ... */
+        /* CSS Variables for consistent theming */
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --text-light: #777;
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 2rem;
+            --border-radius: 4px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f9f9f9;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--accent-color);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: var(--spacing-lg) 0;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--light-color);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-md);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--dark-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--box-shadow);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-sm) 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: var(--spacing-lg);
+        }
+
+        .nav-links a {
+            color: white;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Main Content */
+        main {
+            padding: var(--spacing-lg) 0;
+        }
+
+        section {
+            margin-bottom: var(--spacing-lg);
+            background: white;
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        h1, h2 {
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-md);
+        }
+
+        h2 {
+            padding-bottom: var(--spacing-sm);
+            border-bottom: 2px solid var(--light-color);
+        }
+
+        h3 {
+            color: var(--secondary-color);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .section-item {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .date {
+            color: var(--text-light);
+            font-style: italic;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+            list-style: none;
+        }
+
+        .skill-tag {
+            background-color: var(--light-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .project-image {
+            max-width: 100%;
+            border-radius: var(--border-radius);
+            margin: var(--spacing-md) 0;
+            box-shadow: var(--box-shadow);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-md);
+            color: var(--secondary-color);
+            font-weight: 500;
+            padding: var(--spacing-sm) var(--spacing-md);
+            background-color: var(--light-color);
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .back-link:hover {
+            background-color: #dde4e6;
+            transform: translateX(-5px);
+        }
+
+        .project-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+            margin: var(--spacing-lg) 0;
+        }
+
+        .highlight-card {
+            background-color: var(--light-color);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: var(--spacing-lg) 0;
+            margin-top: var(--spacing-lg);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-md);
+            margin: var(--spacing-md) 0;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--dark-color);
+                padding: var(--spacing-md);
+                box-shadow: var(--box-shadow);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+            }
+
+            .project-highlights {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            nav, footer {
+                display: none;
+            }
+            
+            section {
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Header Section -->
     <header>
         <div class="container">
-            <h1>Project 1 Title</h1>
-            <p>Your Name - Computer Science Portfolio</p>
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="John Doe" class="profile-img">
+            <h1>John Doe</h1>
+            <p>Computer Science Student</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:john.doe@knights.ucf.edu">john.doe@knights.ucf.edu</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <a href="https://linkedin.com/in/johndoe" target="_blank">linkedin.com/in/johndoe</a>
+                </div>
+            </div>
         </div>
     </header>
 
+    <!-- Navigation -->
     <nav>
         <div class="container nav-container">
-            <div class="logo">YN</div>
+            <div class="logo">JD</div>
             <button class="menu-toggle" id="menuToggle">
                 <i class="fas fa-bars"></i>
             </button>
@@ -32,37 +333,74 @@
         </div>
     </nav>
 
+    <!-- Main Content -->
     <main class="container">
         <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Resume</a>
         
         <section>
-            <img src="project1-detail-image.jpg" alt="Project 1 Detailed View" class="project-image">
+            <h1>Task Management Application</h1>
+            <p class="date">Completed: Spring 2023</p>
             
-            <h2>Project Description</h2>
-            <p>Detailed description of your first project. Explain what the project does, why you created it, and any challenges you faced.</p>
+            <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Task Management Application Interface" class="project-image">
             
-            <h2>Technologies Used</h2>
-            <ul class="skills-list">
-                <li class="skill-tag">Technology 1</li>
-                <li class="skill-tag">Technology 2</li>
-                <li class="skill-tag">Technology 3</li>
-            </ul>
+            <h2>Project Overview</h2>
+            <p>This task management application was developed as part of my Software Engineering course. The goal was to create a comprehensive tool that helps individuals and teams organize, track, and prioritize their work efficiently.</p>
+            <p>The application features user authentication, real-time updates, and integration with calendar systems to provide a seamless task management experience across devices.</p>
+            
+            <div class="project-highlights">
+                <div class="highlight-card">
+                    <h3>Key Features</h3>
+                    <ul>
+                        <li>User authentication and authorization</li>
+                        <li>Drag-and-drop task organization</li>
+                        <li>Real-time collaboration</li>
+                        <li>Calendar integration</li>
+                        <li>Progress tracking and reporting</li>
+                    </ul>
+                </div>
+                
+                <div class="highlight-card">
+                    <h3>Technical Details</h3>
+                    <ul>
+                        <li>Frontend: React with TypeScript</li>
+                        <li>Backend: Node.js with Express</li>
+                        <li>Database: MongoDB</li>
+                        <li>Authentication: JWT tokens</li>
+                        <li>Deployment: AWS EC2 instance</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h2>Development Process</h2>
+            <p>This project followed an Agile development methodology with two-week sprints. I was responsible for the frontend development and integration with the backend API.</p>
+            <p>The biggest challenge was implementing real-time updates across multiple clients. I solved this by using WebSocket connections that push updates to all connected clients when changes occur.</p>
             
             <h2>Skills Learned</h2>
-            <p>Describe the skills you developed or improved while working on this project.</p>
+            <ul class="skills-list">
+                <li class="skill-tag">React Development</li>
+                <li class="skill-tag">REST API Design</li>
+                <li class="skill-tag">WebSocket Implementation</li>
+                <li class="skill-tag">Database Design</li>
+                <li class="skill-tag">User Authentication</li>
+                <li class="skill-tag">Agile Methodology</li>
+                <li class="skill-tag">Team Collaboration</li>
+                <li class="skill-tag">Project Management</li>
+            </ul>
             
-            <h2>Project Timeline</h2>
-            <p>When you worked on this project and how long it took to complete.</p>
+            <h2>Project Outcomes</h2>
+            <p>The application was successfully deployed and used by a small team of 10 people for three months. User feedback highlighted the intuitive interface and reliable synchronization across devices as standout features.</p>
+            <p>This project helped me understand the full software development lifecycle, from requirements gathering to deployment and maintenance.</p>
         </section>
     </main>
 
+    <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2023 Your Name. All rights reserved.</p>
+            <p>&copy; 2023 John Doe. All rights reserved.</p>
             <div class="social-links">
-                <a href="https://linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="mailto:your.email@knights.ucf.edu"><i class="fas fa-envelope"></i></a>
+                <a href="https://linkedin.com/in/johndoe" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/johndoe" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="mailto:john.doe@knights.ucf.edu"><i class="fas fa-envelope"></i></a>
             </div>
         </div>
     </footer>
