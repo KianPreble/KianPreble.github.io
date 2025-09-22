@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task Management Application - John Doe</title>
+    <title>Netbox Power Planning Project - Your Name</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* CSS Variables for consistent theming */
@@ -232,6 +232,61 @@
             border-left: 4px solid var(--secondary-color);
         }
 
+        .data-center-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-md);
+            margin: var(--spacing-lg) 0;
+        }
+
+        .dc-item {
+            border: 1px solid var(--light-color);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .dc-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow);
+        }
+
+        .dc-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .dc-caption {
+            padding: var(--spacing-md);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-md);
+            margin: var(--spacing-lg) 0;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: var(--spacing-md);
+            background: var(--light-color);
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .feature-item:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--box-shadow);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: var(--spacing-sm);
+        }
+
         /* Footer */
         footer {
             background-color: var(--primary-color);
@@ -280,7 +335,7 @@
                 gap: var(--spacing-sm);
             }
 
-            .project-highlights {
+            .project-highlights, .data-center-grid, .feature-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -302,17 +357,17 @@
     <!-- Header Section -->
     <header>
         <div class="container">
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="John Doe" class="profile-img">
-            <h1>John Doe</h1>
-            <p>Computer Science Student</p>
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="Your Name" class="profile-img">
+            <h1>Your Name</h1>
+            <p>IT Infrastructure Specialist</p>
             <div class="contact-info">
                 <div class="contact-item">
                     <i class="fas fa-envelope"></i>
-                    <a href="mailto:john.doe@knights.ucf.edu">john.doe@knights.ucf.edu</a>
+                    <a href="mailto:your.email@knights.ucf.edu">your.email@knights.ucf.edu</a>
                 </div>
                 <div class="contact-item">
                     <i class="fab fa-linkedin"></i>
-                    <a href="https://linkedin.com/in/johndoe" target="_blank">linkedin.com/in/johndoe</a>
+                    <a href="https://linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a>
                 </div>
             </div>
         </div>
@@ -321,7 +376,7 @@
     <!-- Navigation -->
     <nav>
         <div class="container nav-container">
-            <div class="logo">JD</div>
+            <div class="logo">YN</div>
             <button class="menu-toggle" id="menuToggle">
                 <i class="fas fa-bars"></i>
             </button>
@@ -338,69 +393,159 @@
         <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Resume</a>
         
         <section>
-            <h1>Task Management Application</h1>
-            <p class="date">Completed: Spring 2023</p>
+            <h1>Netbox Power Planning Implementation</h1>
+            <p class="date">Completed: Current | Professional Project - Data Center Infrastructure</p>
             
-            <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Task Management Application Interface" class="project-image">
+            <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Data Center Infrastructure" class="project-image">
             
             <h2>Project Overview</h2>
-            <p>This task management application was developed as part of my Software Engineering course. The goal was to create a comprehensive tool that helps individuals and teams organize, track, and prioritize their work efficiently.</p>
-            <p>The application features user authentication, real-time updates, and integration with calendar systems to provide a seamless task management experience across devices.</p>
+            <p>This project involved implementing Netbox as a comprehensive power planning and management solution for our enterprise data center. The system tracks power capacity, utilization, and connectivity from the utility feed down to individual server power supplies, providing complete visibility into our power infrastructure.</p>
             
             <div class="project-highlights">
                 <div class="highlight-card">
-                    <h3>Key Features</h3>
+                    <h3>Business Challenge</h3>
                     <ul>
-                        <li>User authentication and authorization</li>
-                        <li>Drag-and-drop task organization</li>
-                        <li>Real-time collaboration</li>
-                        <li>Calendar integration</li>
-                        <li>Progress tracking and reporting</li>
+                        <li>Lack of centralized power capacity tracking</li>
+                        <li>Manual power planning processes</li>
+                        <li>Difficulty forecasting power needs</li>
+                        <li>Inefficient incident response for power issues</li>
                     </ul>
                 </div>
                 
                 <div class="highlight-card">
-                    <h3>Technical Details</h3>
+                    <h3>Technical Solution</h3>
                     <ul>
-                        <li>Frontend: React with TypeScript</li>
-                        <li>Backend: Node.js with Express</li>
-                        <li>Database: MongoDB</li>
-                        <li>Authentication: JWT tokens</li>
-                        <li>Deployment: AWS EC2 instance</li>
+                        <li>Custom Netbox power modeling plugins</li>
+                        <li>API integrations with monitoring systems</li>
+                        <li>Automated power capacity reporting</li>
+                        <li>Real-time power utilization dashboards</li>
                     </ul>
                 </div>
             </div>
+
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Power Capacity Tracking</h3>
+                    <p>Real-time monitoring of available power capacity at each distribution level</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3>Connectivity Mapping</h3>
+                    <p>Complete power path visualization from utility to device level</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Utilization Analytics</h3>
+                    <p>Historical trending and predictive capacity planning</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h3>Alerting & Reporting</h3>
+                    <p>Proactive notifications for capacity thresholds and issues</p>
+                </div>
+            </div>
             
-            <h2>Development Process</h2>
-            <p>This project followed an Agile development methodology with two-week sprints. I was responsible for the frontend development and integration with the backend API.</p>
-            <p>The biggest challenge was implementing real-time updates across multiple clients. I solved this by using WebSocket connections that push updates to all connected clients when changes occur.</p>
+            <h2>Implementation Details</h2>
+            <div class="data-center-grid">
+                <div class="dc-item">
+                    <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Power Distribution Unit">
+                    <div class="dc-caption">
+                        <h3>Power Distribution Mapping</h3>
+                        <p>Modeled complete power distribution hierarchy including PDUs, panels, and circuits</p>
+                    </div>
+                </div>
+                
+                <div class="dc-item">
+                    <img src="https://images.unsplash.com/photo-1597852074816-d933c7d2b988?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Server Racks">
+                    <div class="dc-caption">
+                        <h3>Rack Power Planning</h3>
+                        <p>Implemented per-rack power capacity tracking and allocation</p>
+                    </div>
+                </div>
+                
+                <div class="dc-item">
+                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Network Monitoring">
+                    <div class="dc-caption">
+                        <h3>Integration & Automation</h3>
+                        <p>Connected Netbox with existing monitoring systems for real-time data</p>
+                    </div>
+                </div>
+            </div>
             
-            <h2>Skills Learned</h2>
+            <h2>Technical Implementation</h2>
+            <div class="project-highlights">
+                <div class="highlight-card">
+                    <h3>Custom Netbox Development</h3>
+                    <p>Extended Netbox's core functionality with custom models for power capacity tracking, creating specialized object types for power distribution units, circuits, and power connections that aren't natively supported.</p>
+                </div>
+                
+                <div class="highlight-card">
+                    <h3>API Integration Architecture</h3>
+                    <p>Developed REST API integrations with power monitoring systems (PDU controllers, UPS systems) to automatically pull real-time power utilization data into Netbox, eliminating manual data entry.</p>
+                </div>
+            </div>
+            
+            <h2>Key Challenges & Solutions</h2>
+            <p><strong>Challenge:</strong> Integrating disparate power monitoring systems with varying data formats and API structures.</p>
+            <p><strong>Solution:</strong> Created a middleware abstraction layer that normalizes data from different systems into a standard format for Netbox consumption.</p>
+            
+            <p><strong>Challenge:</strong> Modeling complex power redundancy scenarios (N+1, 2N, A/B power feeds).</p>
+            <p><strong>Solution:</strong> Developed custom relationship models in Netbox to accurately represent and calculate capacity in redundant power scenarios.</p>
+            
+            <p><strong>Challenge:</strong> Ensuring data accuracy between physical infrastructure and digital records.</p>
+            <p><strong>Solution:</strong> Implemented QR code labeling system for physical assets that syncs with Netbox inventory through mobile scanning applications.</p>
+            
+            <h2>Skills Developed & Applied</h2>
             <ul class="skills-list">
-                <li class="skill-tag">React Development</li>
-                <li class="skill-tag">REST API Design</li>
-                <li class="skill-tag">WebSocket Implementation</li>
-                <li class="skill-tag">Database Design</li>
-                <li class="skill-tag">User Authentication</li>
-                <li class="skill-tag">Agile Methodology</li>
-                <li class="skill-tag">Team Collaboration</li>
+                <li class="skill-tag">Netbox Configuration & Customization</li>
+                <li class="skill-tag">Python/Django Development</li>
+                <li class="skill-tag">REST API Integration</li>
+                <li class="skill-tag">Data Center Power Infrastructure</li>
+                <li class="skill-tag">Capacity Planning</li>
+                <li class="skill-tag">Systems Integration</li>
+                <li class="skill-tag">Documentation & Training</li>
                 <li class="skill-tag">Project Management</li>
             </ul>
             
-            <h2>Project Outcomes</h2>
-            <p>The application was successfully deployed and used by a small team of 10 people for three months. User feedback highlighted the intuitive interface and reliable synchronization across devices as standout features.</p>
-            <p>This project helped me understand the full software development lifecycle, from requirements gathering to deployment and maintenance.</p>
+            <h2>Business Impact & Outcomes</h2>
+            <p>The Netbox power planning implementation has transformed our data center operations with measurable improvements:</p>
+            
+            <div class="project-highlights">
+                <div class="highlight-card">
+                    <h3>Operational Efficiency</h3>
+                    <p>Reduced power capacity planning time by 75% through automated reporting and visualization tools.</p>
+                </div>
+                
+                <div class="highlight-card">
+                    <h3>Risk Mitigation</h3>
+                    <p>Eliminated capacity over-subscription risks with real-time utilization monitoring and predictive analytics.</p>
+                </div>
+            </div>
+            
+            <p>The system now serves as the single source of truth for data center power infrastructure, used daily by operations teams for capacity planning, incident response, and infrastructure changes.</p>
+            
+            <h2>Future Enhancements</h2>
+            <p>Planned improvements include machine learning-based power consumption forecasting, integration with cooling capacity planning, and expanded API integrations with building management systems for holistic facility management.</p>
         </section>
     </main>
 
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2023 John Doe. All rights reserved.</p>
+            <p>&copy; 2023 Your Name. All rights reserved.</p>
             <div class="social-links">
-                <a href="https://linkedin.com/in/johndoe" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/johndoe" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="mailto:john.doe@knights.ucf.edu"><i class="fas fa-envelope"></i></a>
+                <a href="https://linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="mailto:your.email@knights.ucf.edu"><i class="fas fa-envelope"></i></a>
             </div>
         </div>
     </footer>
