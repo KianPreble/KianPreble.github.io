@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Visualization Tool - John Doe</title>
+    <title>Pi-hole Network Ad Blocking - Your Name</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* CSS Variables for consistent theming */
@@ -232,33 +232,80 @@
             border-left: 4px solid var(--secondary-color);
         }
 
-        .visualization-gallery {
+        .network-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: var(--spacing-md);
             margin: var(--spacing-lg) 0;
         }
 
-        .gallery-item {
+        .network-item {
             border: 1px solid var(--light-color);
             border-radius: var(--border-radius);
             overflow: hidden;
             transition: var(--transition);
         }
 
-        .gallery-item:hover {
+        .network-item:hover {
             transform: translateY(-5px);
             box-shadow: var(--box-shadow);
         }
 
-        .gallery-item img {
+        .network-item img {
             width: 100%;
             height: 200px;
             object-fit: cover;
         }
 
-        .gallery-caption {
+        .network-caption {
             padding: var(--spacing-md);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-md);
+            margin: var(--spacing-lg) 0;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: var(--spacing-md);
+            background: var(--light-color);
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .feature-item:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--box-shadow);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-md);
+            margin: var(--spacing-lg) 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: var(--spacing-md);
+            background: linear-gradient(135deg, var(--secondary-color), #2980b9);
+            color: white;
+            border-radius: var(--border-radius);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: var(--spacing-sm);
         }
 
         /* Footer */
@@ -309,7 +356,7 @@
                 gap: var(--spacing-sm);
             }
 
-            .project-highlights, .visualization-gallery {
+            .project-highlights, .network-grid, .feature-grid, .stats-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -331,17 +378,17 @@
     <!-- Header Section -->
     <header>
         <div class="container">
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="John Doe" class="profile-img">
-            <h1>John Doe</h1>
-            <p>Computer Science Student</p>
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="Your Name" class="profile-img">
+            <h1>Your Name</h1>
+            <p>Network Security Enthusiast</p>
             <div class="contact-info">
                 <div class="contact-item">
                     <i class="fas fa-envelope"></i>
-                    <a href="mailto:john.doe@knights.ucf.edu">john.doe@knights.ucf.edu</a>
+                    <a href="mailto:your.email@knights.ucf.edu">your.email@knights.ucf.edu</a>
                 </div>
                 <div class="contact-item">
                     <i class="fab fa-linkedin"></i>
-                    <a href="https://linkedin.com/in/johndoe" target="_blank">linkedin.com/in/johndoe</a>
+                    <a href="https://linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a>
                 </div>
             </div>
         </div>
@@ -350,7 +397,7 @@
     <!-- Navigation -->
     <nav>
         <div class="container nav-container">
-            <div class="logo">JD</div>
+            <div class="logo">YN</div>
             <button class="menu-toggle" id="menuToggle">
                 <i class="fas fa-bars"></i>
             </button>
@@ -367,95 +414,191 @@
         <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Resume</a>
         
         <section>
-            <h1>Data Visualization Tool</h1>
-            <p class="date">Completed: Fall 2022</p>
+            <h1>Pi-hole Network-Wide Ad Blocking System</h1>
+            <p class="date">Completed: Current | Personal Home Network Project</p>
             
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Data Visualization Dashboard" class="project-image">
+            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Network Infrastructure" class="project-image">
             
             <h2>Project Overview</h2>
-            <p>This data visualization tool was developed for my Data Structures and Algorithms course to demonstrate the practical application of sorting and searching algorithms on large datasets. The tool allows users to upload CSV files and visualize the data through various chart types.</p>
-            <p>The application processes data efficiently using optimized algorithms and provides interactive visualizations that help users identify patterns and trends in their data.</p>
+            <p>This project involved deploying Pi-hole, a Linux network-level advertisement and internet tracker blocking application, as a DNS sinkhole to protect all devices on my home network. The system blocks advertising domains at the DNS level, preventing ads from ever reaching connected devices without requiring client-side software.</p>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">98.7%</div>
+                    <div>Ads Blocked</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">25+</div>
+                    <div>Devices Protected</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">2.3M</div>
+                    <div>Queries Processed</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">350K</div>
+                    <div>Domains Blocked</div>
+                </div>
+            </div>
+
+            <div class="project-highlights">
+                <div class="highlight-card">
+                    <h3>Problem Statement</h3>
+                    <ul>
+                        <li>Intrusive ads across all network devices</li>
+                        <li>Privacy concerns with tracking scripts</li>
+                        <li>Reduced network performance from ad content</li>
+                        <li>Malware risk from malicious advertisements</li>
+                    </ul>
+                </div>
+                
+                <div class="highlight-card">
+                    <h3>Technical Solution</h3>
+                    <ul>
+                        <li>Raspberry Pi 4 deployment</li>
+                        <li>Custom blocklists configuration</li>
+                        <li>DNS-over-HTTPS implementation</li>
+                        <li>Network-wide DNS redirection</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Network-Wide Protection</h3>
+                    <p>Blocks ads on all connected devices including IoT, smart TVs, and mobile devices</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3>Performance Boost</h3>
+                    <p>Faster page loads by preventing ad content from downloading</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h3>Privacy Enhancement</h3>
+                    <p>Blocks tracking scripts and analytics domains</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Detailed Analytics</h3>
+                    <p>Comprehensive query logging and blocking statistics</p>
+                </div>
+            </div>
+            
+            <h2>Implementation Details</h2>
+            <div class="network-grid">
+                <div class="network-item">
+                    <img src="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Raspberry Pi Setup">
+                    <div class="network-caption">
+                        <h3>Hardware Configuration</h3>
+                        <p>Deployed on Raspberry Pi 4 with wired Ethernet connection for maximum reliability and performance</p>
+                    </div>
+                </div>
+                
+                <div class="network-item">
+                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Network Diagram">
+                    <div class="network-caption">
+                        <h3>Network Architecture</h3>
+                        <p>Configured as primary DNS server with fallback to Cloudflare DNS for uninterrupted service</p>
+                    </div>
+                </div>
+                
+                <div class="network-item">
+                    <img src="https://images.unsplash.com/photo-1563207153-f403bf289096?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Web Interface">
+                    <div class="network-caption">
+                        <h3>Management Interface</h3>
+                        <p>Web-based admin panel for real-time monitoring and configuration changes</p>
+                    </div>
+                </div>
+            </div>
+            
+            <h2>Technical Implementation</h2>
+            <div class="project-highlights">
+                <div class="highlight-card">
+                    <h3>Custom Blocklists Configuration</h3>
+                    <p>Curated and combined multiple blocklist sources including Steven Black's hosts list, malware domains, and custom whitelist entries for services that require specific domains to function properly.</p>
+                </div>
+                
+                <div class="highlight-card">
+                    <h3>DNS-over-HTTPS Integration</h3>
+                    <p>Configured Pi-hole to use DNS-over-HTTPS upstream resolvers for encrypted DNS queries, enhancing privacy and preventing ISP DNS manipulation.</p>
+                </div>
+            </div>
+            
+            <h2>Key Challenges & Solutions</h2>
+            <p><strong>Challenge:</strong> Some websites and services breaking due to over-aggressive blocking.</p>
+            <p><strong>Solution:</strong> Implemented careful whitelisting process and used Pi-hole's query log to identify and allow essential domains while maintaining protection.</p>
+            
+            <p><strong>Challenge:</strong> Ensuring high availability and minimal downtime.</p>
+            <p><strong>Solution:</strong> Configured secondary DNS fallback and implemented monitoring alerts for Pi-hole service status.</p>
+            
+            <p><strong>Challenge:</strong> Managing family member expectations and troubleshooting.</p>
+            <p><strong>Solution:</strong> Created simple whitelist request process and educated family members on the benefits of ad blocking.</p>
+            
+            <h2>Skills Developed & Applied</h2>
+            <ul class="skills-list">
+                <li class="skill-tag">Linux System Administration</li>
+                <li class="skill-tag">DNS Configuration & Management</li>
+                <li class="skill-tag">Raspberry Pi Deployment</li>
+                <li class="skill-tag">Network Security</li>
+                <li class="skill-tag">Shell Scripting</li>
+                <li class="skill-tag">Network Troubleshooting</li>
+                <li class="skill-tag">Privacy & Security Best Practices</li>
+                <li class="skill-tag">Documentation</li>
+            </ul>
+            
+            <h2>Performance Impact & Outcomes</h2>
+            <p>The Pi-hole implementation has significantly improved the home network experience with measurable benefits:</p>
             
             <div class="project-highlights">
                 <div class="highlight-card">
-                    <h3>Key Features</h3>
-                    <ul>
-                        <li>Support for multiple chart types (bar, line, pie, scatter)</li>
-                        <li>Real-time data filtering and sorting</li>
-                        <li>Interactive data exploration</li>
-                        <li>Export visualizations as PNG or SVG</li>
-                        <li>Responsive design for all devices</li>
-                    </ul>
+                    <h3>Enhanced User Experience</h3>
+                    <p>Eliminated intrusive ads across all devices including mobile apps, smart TVs, and gaming consoles, creating a cleaner browsing experience.</p>
                 </div>
                 
                 <div class="highlight-card">
-                    <h3>Technical Details</h3>
-                    <ul>
-                        <li>Frontend: D3.js with vanilla JavaScript</li>
-                        <li>Data Processing: Custom algorithms</li>
-                        <li>File Handling: CSV/JSON parsing</li>
-                        <li>Performance: Optimized for large datasets</li>
-                        <li>Compatibility: Works on all modern browsers</li>
-                    </ul>
+                    <h3>Improved Network Performance</h3>
+                    <p>Reduced bandwidth consumption by blocking ad content, resulting in faster page load times and more efficient bandwidth usage.</p>
+                </div>
+            </div>
+
+            <div class="project-highlights">
+                <div class="highlight-card">
+                    <h3>Security Benefits</h3>
+                    <p>Blocked known malware domains and tracking scripts, reducing the attack surface and enhancing overall network security.</p>
+                </div>
+                
+                <div class="highlight-card">
+                    <h3>Privacy Protection</h3>
+                    <p>Prevented data collection by advertising networks and analytics trackers across all connected devices.</p>
                 </div>
             </div>
             
-            <h2>Visualization Examples</h2>
-            <div class="visualization-gallery">
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Bar Chart Example">
-                    <div class="gallery-caption">
-                        <h3>Bar Chart</h3>
-                        <p>Comparative analysis of categorical data</p>
-                    </div>
-                </div>
-                
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Line Chart Example">
-                    <div class="gallery-caption">
-                        <h3>Line Chart</h3>
-                        <p>Trend analysis over time periods</p>
-                    </div>
-                </div>
-                
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1568700942090-19dc36fab0d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Pie Chart Example">
-                    <div class="gallery-caption">
-                        <h3>Pie Chart</h3>
-                        <p>Proportional representation of data</p>
-                    </div>
-                </div>
-            </div>
+            <h2>Future Enhancements</h2>
+            <p>Planned improvements include setting up a redundant secondary Pi-hole instance for high availability, implementing custom blocklists for specific privacy concerns, and exploring integration with VPN services for mobile device protection outside the home network.</p>
             
-            <h2>Development Challenges</h2>
-            <p>The main challenge was optimizing the performance when handling large datasets. I implemented efficient sorting algorithms (QuickSort and MergeSort) and used Web Workers to prevent the UI from freezing during data processing.</p>
-            <p>Another challenge was creating responsive visualizations that maintain readability across different screen sizes. I solved this by implementing dynamic scaling and responsive design principles.</p>
-            
-            <h2>Skills Learned</h2>
-            <ul class="skills-list">
-                <li class="skill-tag">D3.js Visualization</li>
-                <li class="skill-tag">Algorithm Optimization</li>
-                <li class="skill-tag">Data Processing</li>
-                <li class="skill-tag">Performance Tuning</li>
-                <li class="skill-tag">Responsive Design</li>
-                <li class="skill-tag">User Experience Design</li>
-                <li class="skill-tag">Problem Solving</li>
-            </ul>
-            
-            <h2>Project Impact</h2>
-            <p>This tool was used by fellow students to visualize their project data and gained positive feedback for its intuitive interface and performance. The project helped me secure a research assistant position where I further developed data visualization skills.</p>
-            <p>The experience gained from this project directly contributed to my understanding of how theoretical algorithms apply to real-world data processing challenges.</p>
+            <h2>Project Documentation</h2>
+            <p>Maintained detailed documentation including setup procedures, troubleshooting guides, and configuration backups to ensure reproducibility and easy recovery in case of hardware failure.</p>
         </section>
     </main>
 
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2023 John Doe. All rights reserved.</p>
+            <p>&copy; 2023 Your Name. All rights reserved.</p>
             <div class="social-links">
-                <a href="https://linkedin.com/in/johndoe" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/johndoe" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="mailto:john.doe@knights.ucf.edu"><i class="fas fa-envelope"></i></a>
+                <a href="https://linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="mailto:your.email@knights.ucf.edu"><i class="fas fa-envelope"></i></a>
             </div>
         </div>
     </footer>
