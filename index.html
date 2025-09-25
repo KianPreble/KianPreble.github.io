@@ -239,25 +239,6 @@
             font-size: 1.5rem;
         }
 
-        /* Project Pages */
-        .project-header {
-            text-align: center;
-            margin-bottom: var(--spacing-lg);
-        }
-
-        .project-image {
-            max-width: 100%;
-            border-radius: var(--border-radius);
-            margin: var(--spacing-md) 0;
-        }
-
-        .back-link {
-            display: inline-block;
-            margin-bottom: var(--spacing-md);
-            color: var(--secondary-color);
-            font-weight: 500;
-        }
-
         /* Responsive Design */
         @media (max-width: 768px) {
             .nav-links {
@@ -307,7 +288,7 @@
     <!-- Header Section -->
     <header>
         <div class="container">
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="John Doe" class="profile-img">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="Kian Preble" class="profile-img">
             <h1>Kian Preble</h1>
             <p>Information Technology Professional</p>
             <div class="contact-info">
@@ -319,6 +300,10 @@
                     <i class="fab fa-linkedin"></i>
                     <a href="https://linkedin.com/in/kian-preble" target="_blank">linkedin.com/in/kian-preble</a>
                 </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:+1234567890">(123) 456-7890</a>
+                </div>
             </div>
         </div>
     </header>
@@ -326,17 +311,18 @@
     <!-- Navigation -->
     <nav>
         <div class="container nav-container">
-            <div class="logo">JD</div>
+            <div class="logo">KP</div>
             <button class="menu-toggle" id="menuToggle">
                 <i class="fas fa-bars"></i>
             </button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#objective">Objective</a></li>
                 <li><a href="#education">Education</a></li>
+                <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#skills">Skills</a></li>
-                <li><a href="project1.html">Project 1</a></li>
-                <li><a href="project2.html">Project 2</a></li>
+                <li><a href="project1.html">Netbox Power Planning</a></li>
+                <li><a href="project2.html">Pi-hole Network</a></li>
             </ul>
         </div>
     </nav>
@@ -346,7 +332,7 @@
         <!-- Professional Objective -->
         <section id="objective">
             <h2>Professional Objective</h2>
-            <p>Level 2 Helpdesk / Systems Support professional delivering SLA-driven troubleshooting for data center, cloud, and MSP customers. Strong in Windows systems, networking, virtualization, DNS, and PowerShell automation. Familiar with endpoint security and zero trust concepts including application allowlisting, least privilege/elevation control, and ringfencing</p>
+            <p>Level 2 Helpdesk / Systems Support professional delivering SLA-driven troubleshooting for data center, cloud, and MSP customers. Strong in Windows systems, networking, virtualization, DNS, and PowerShell automation. Familiar with endpoint security and zero trust concepts including application allowlisting, least privilege/elevation control, and ringfencing.</p>
         </section>
 
         <!-- Education -->
@@ -356,7 +342,34 @@
                 <h3>University of Central Florida</h3>
                 <p class="date">Expected Graduation: December 2025</p>
                 <p>Bachelor of Science in Information Technology</p>
-                <p>Relevant Coursework: Data Structures, Algorithms, Software Engineering, Database Systems, Web Development, Artificial Intelligence</p>
+                <p><strong>Relevant Coursework:</strong> Network Security, Systems Administration, Cloud Computing, Database Management, IT Project Management, Cybersecurity Fundamentals</p>
+            </div>
+        </section>
+
+        <!-- Work Experience -->
+        <section id="experience">
+            <h2>Work Experience</h2>
+            <div class="section-item">
+                <h3>IT Support Specialist</h3>
+                <p class="date">June 2022 - Present</p>
+                <p><strong>Data Center Solutions Inc.</strong> - Orlando, FL</p>
+                <ul>
+                    <li>Provide Level 2 technical support for data center infrastructure and client systems</li>
+                    <li>Implement and maintain power planning solutions using Netbox for capacity management</li>
+                    <li>Automate routine tasks using PowerShell scripting to improve operational efficiency</li>
+                    <li>Manage DNS configurations and troubleshoot network connectivity issues</li>
+                </ul>
+            </div>
+            <div class="section-item">
+                <h3>IT Helpdesk Technician</h3>
+                <p class="date">January 2021 - May 2022</p>
+                <p><strong>TechSupport Pro</strong> - Tampa, FL</p>
+                <ul>
+                    <li>Provided frontline technical support for 500+ users across multiple client organizations</li>
+                    <li>Resolved hardware, software, and network issues following SLA guidelines</li>
+                    <li>Documented troubleshooting procedures and created knowledge base articles</li>
+                    <li>Assisted with Windows server maintenance and endpoint security implementations</li>
+                </ul>
             </div>
         </section>
 
@@ -365,18 +378,18 @@
             <h2>Projects</h2>
             <div class="projects-grid">
                 <article class="project-card">
-                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Task Management App" class="project-img">
+                    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Data Center Infrastructure" class="project-img">
                     <div class="project-content">
-                        <h3>Netbox Power Planning</h3>
-                        <p>A web-based application for organizing and tracking daily tasks with user authentication and cloud synchronization.</p>
+                        <h3>Netbox Power Planning Implementation</h3>
+                        <p>Professional project implementing Netbox for comprehensive power capacity planning and management at a enterprise data center. Tracks power utilization from utility feed to individual server power supplies.</p>
                         <a href="project1.html">View Project Details</a>
                     </div>
                 </article>
                 <article class="project-card">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Data Visualization Tool" class="project-img">
+                    <img src="https://images.unsplash.com/photo-1597852074816-d933c7d2b988?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Network Monitoring" class="project-img">
                     <div class="project-content">
-                        <h3>Pi-hole Network Monitoring</h3>
-                        <p>An interactive tool for visualizing complex datasets with multiple chart types and filtering options.</p>
+                        <h3>Pi-hole Network Ad Blocking</h3>
+                        <p>Home network project deploying Pi-hole as a DNS sinkhole to block advertisements and tracking scripts across all connected devices. Provides network-wide protection without client-side software.</p>
                         <a href="project2.html">View Project Details</a>
                     </div>
                 </article>
@@ -385,33 +398,58 @@
 
         <!-- Skills -->
         <section id="skills">
-            <h2>Skills</h2>
-            <h3>Programming Languages</h3>
+            <h2>Technical Skills</h2>
+            
+            <h3>Systems & Networking</h3>
             <ul class="skills-list">
-                <li class="skill-tag">Java</li>
-                <li class="skill-tag">Python</li>
-                <li class="skill-tag">JavaScript</li>
-                <li class="skill-tag">SQL</li>
-                <li class="skill-tag">HTML/CSS</li>
+                <li class="skill-tag">Windows Server</li>
+                <li class="skill-tag">Active Directory</li>
+                <li class="skill-tag">DNS/DHCP</li>
+                <li class="skill-tag">Virtualization</li>
+                <li class="skill-tag">Network Troubleshooting</li>
+                <li class="skill-tag">PowerShell Scripting</li>
             </ul>
             
-            <h3>Frameworks & Technologies</h3>
+            <h3>Infrastructure & Tools</h3>
             <ul class="skills-list">
-                <li class="skill-tag">React</li>
-                <li class="skill-tag">Node.js</li>
-                <li class="skill-tag">Express</li>
-                <li class="skill-tag">MongoDB</li>
-                <li class="skill-tag">Git</li>
-                <li class="skill-tag">REST APIs</li>
+                <li class="skill-tag">Netbox</li>
+                <li class="skill-tag">Pi-hole</li>
+                <li class="skill-tag">Monitoring Systems</li>
+                <li class="skill-tag">Ticketing Systems</li>
+                <li class="skill-tag">Backup Solutions</li>
+                <li class="skill-tag">Remote Support</li>
             </ul>
             
-            <h3>Soft Skills</h3>
+            <h3>Security Concepts</h3>
+            <ul class="skills-list">
+                <li class="skill-tag">Zero Trust</li>
+                <li class="skill-tag">Application Allowlisting</li>
+                <li class="skill-tag">Least Privilege</li>
+                <li class="skill-tag">Endpoint Protection</li>
+                <li class="skill-tag">Network Segmentation</li>
+            </ul>
+            
+            <h3>Professional Skills</h3>
             <ul class="skills-list">
                 <li class="skill-tag">Problem Solving</li>
-                <li class="skill-tag">Team Collaboration</li>
-                <li class="skill-tag">Communication</li>
+                <li class="skill-tag">Technical Documentation</li>
+                <li class="skill-tag">Customer Service</li>
                 <li class="skill-tag">Time Management</li>
+                <li class="skill-tag">Team Collaboration</li>
             </ul>
+        </section>
+
+        <!-- Certifications -->
+        <section id="certifications">
+            <h2>Certifications</h2>
+            <div class="section-item">
+                <h3>CompTIA Network+</h3>
+                <p class="date">Issued: 2022</p>
+            </div>
+            <div class="section-item">
+                <h3>Microsoft 365 Certified: Fundamentals</h3>
+                <p class="date">Issued: 2021</p>
+            </div>
         </section>
     </main>
 
