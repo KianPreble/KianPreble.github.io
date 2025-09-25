@@ -6,6 +6,7 @@
     <title>Kian Preble - Professional Resume</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* Kian Preble Resume - Custom CSS Design */
         
         /* Color Palette */
         :root {
@@ -138,10 +139,34 @@
             display: flex;
             align-items: center;
             gap: var(--spacing-xs);
-            background: rgba(255, 255, 255, 0.1);
-            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.7rem 1.2rem;
             border-radius: 50px;
             backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .contact-item a {
+            color: white;
+            font-weight: 600;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-item a:hover {
+            color: #ffd700; /* Gold color for better contrast on hover */
+        }
+
+        .contact-item i {
+            color: #ffd700; /* Gold icons for better visibility */
+            font-size: 1.1rem;
         }
 
         /* Navigation */
