@@ -6,7 +6,6 @@
     <title>Kian Preble - Professional Resume</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        
         /* Color Palette */
         :root {
             --deep-blue: #1a2b4c;
@@ -228,7 +227,7 @@
             padding: var(--spacing-xl) 0;
         }
 
-        section {
+        article {
             margin-bottom: var(--spacing-lg);
             background: white;
             padding: var(--spacing-lg);
@@ -238,7 +237,7 @@
             border-left: 4px solid var(--electric-blue);
         }
 
-        section:hover {
+        article:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow-lg);
         }
@@ -262,6 +261,12 @@
             color: var(--electric-blue);
             margin-bottom: var(--spacing-xs);
             font-size: 1.3rem;
+        }
+
+        h4 {
+            color: var(--electric-blue);
+            margin-bottom: var(--spacing-xs);
+            font-size: 1.1rem;
         }
 
         .section-item {
@@ -433,7 +438,7 @@
                 font-size: 2rem;
             }
             
-            section {
+            article {
                 padding: var(--spacing-md);
             }
         }
@@ -444,7 +449,7 @@
                 display: none;
             }
             
-            section {
+            article {
                 box-shadow: none;
                 border: 1px solid #ddd;
                 page-break-inside: avoid;
@@ -461,7 +466,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
-        section {
+        article {
             animation: fadeIn 0.6s ease-out;
         }
         
@@ -471,6 +476,19 @@
         #experience h2::before { content: "\f0b1"; font-family: "Font Awesome 5 Free"; font-weight: 900; }
         #projects h2::before { content: "\f0eb"; font-family: "Font Awesome 5 Free"; font-weight: 900; }
         #skills h2::before { content: "\f085"; font-family: "Font Awesome 5 Free"; font-weight: 900; }
+        
+        /* Screen reader only text for accessibility */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
     </style>
 </head>
 <body>
@@ -480,7 +498,7 @@
             <img src="headshot.jpg" alt="Kian Preble" class="profile-img">
             <h1>Kian Preble</h1>
             <p>Information Technology Professional</p>
-            <div class="contact-info">
+            <address class="contact-info">
                 <div class="contact-item">
                     <i class="fas fa-envelope"></i>
                     <a href="mailto:kianpreble@gmail.com">kianpreble@gmail.com</a>
@@ -489,14 +507,14 @@
                     <i class="fab fa-linkedin"></i>
                     <a href="https://linkedin.com/in/kian-preble" target="_blank">linkedin.com/in/kian-preble</a>
                 </div>
-            </div>
+            </address>
         </div>
     </header>
 
     <!-- Navigation -->
     <nav>
         <div class="container nav-container">
-            <button class="menu-toggle" id="menuToggle">
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
                 <i class="fas fa-bars"></i>
             </button>
             <ul class="nav-links" id="navLinks">
@@ -514,26 +532,26 @@
     <!-- Main Content -->
     <main class="container">
         <!-- Professional Objective -->
-        <section id="objective">
+        <article id="objective">
             <h2>Professional Objective</h2>
             <p>Level 2 Helpdesk / Systems Support professional delivering SLA-driven troubleshooting for data center, cloud, and MSP customers. Strong in Windows systems, networking, virtualization, DNS, and PowerShell automation. Familiar with endpoint security and zero trust concepts including application allowlisting, least privilege/elevation control, and ringfencing.</p>
-        </section>
+        </article>
 
         <!-- Education -->
-        <section id="education">
+        <article id="education">
             <h2>Education</h2>
-            <div class="section-item">
+            <section class="section-item">
                 <h3>University of Central Florida</h3>
                 <p class="date">Expected Graduation: December 2025</p>
                 <p>Bachelor of Science in Information Technology</p>
                 <p><strong>Relevant Coursework:</strong> Network Security, Systems Administration, Cloud Computing, Database Management, IT Project Management, Cybersecurity Fundamentals</p>
-            </div>
-        </section>
+            </section>
+        </article>
 
         <!-- Work Experience -->
-        <section id="experience">
+        <article id="experience">
             <h2>Work Experience</h2>
-            <div class="section-item">
+            <section class="section-item">
                 <h3>Data Center Operations Support Engineer</h3>
                 <p class="date">June 2023 - Present</p>
                 <p><strong>Colo Solutions</strong> - Orlando, FL</p>
@@ -543,8 +561,8 @@
                     <li>Automate routine tasks using PowerShell scripting to improve operational efficiency</li>
                     <li>Manage DNS configurations and troubleshoot network connectivity issues</li>
                 </ul>
-            </div>
-            <div class="section-item">
+            </section>
+            <section class="section-item">
                 <h3>Chief Financial Officer</h3>
                 <p class="date">December 2020 - May 2022</p>
                 <p><strong>Food for Thought Foundation</strong> - Orlando, FL</p>
@@ -552,15 +570,17 @@
                     <li>Managed budgeting, cash flow, payroll, board reporting, maintained GAAP compliance and led annual audit for a 501(c)3</li>
                     <li>Drove funding growth via grants, donors, and earned revenue initiatives; built forecasts and KPIs to guide strategy</li>
                 </ul>
-            </div>
-        </section>
+            </section>
+        </article>
 
         <!-- Projects -->
-        <section id="projects">
+        <article id="projects">
             <h2>Projects</h2>
             <div class="projects-grid">
                 <article class="project-card">
-                    <img src="betternetbox.webp" alt="Data Center Infrastructure" class="project-img">
+                    <figure>
+                        <img src="betternetbox.webp" alt="Data Center Infrastructure" class="project-img">
+                    </figure>
                     <div class="project-content">
                         <h3>Netbox Power Planning Implementation</h3>
                         <p>Professional project implementing Netbox for comprehensive power capacity planning and management at a enterprise data center. Tracks power utilization from utility feed to individual server power supplies.</p>
@@ -568,7 +588,9 @@
                     </div>
                 </article>
                 <article class="project-card">
-                    <img src="pihole.png" alt="Network Monitoring" class="project-img">
+                    <figure>
+                        <img src="pihole.png" alt="Network Monitoring" class="project-img">
+                    </figure>
                     <div class="project-content">
                         <h3>Pi-hole Network Monitoring</h3>
                         <p>Home network project deploying Pi-hole as a DNS sinkhole to block advertisements and tracking scripts across all connected devices. Provides network-wide protection without client-side software.</p>
@@ -576,51 +598,57 @@
                     </div>
                 </article>
             </div>
-        </section>
+        </article>
 
         <!-- Skills -->
-        <section id="skills">
+        <article id="skills">
             <h2>Technical Skills</h2>
             
-            <h3>Systems & Networking</h3>
-            <ul class="skills-list">
-                <li class="skill-tag">Windows Server</li>
-                <li class="skill-tag">Active Directory</li>
-                <li class="skill-tag">DNS/DHCP</li>
-                <li class="skill-tag">Virtualization</li>
-                <li class="skill-tag">Network Troubleshooting</li>
-                <li class="skill-tag">PowerShell Scripting</li>
-            </ul>
+            <section>
+                <h3>Systems & Networking</h3>
+                <ul class="skills-list">
+                    <li class="skill-tag">Windows Server</li>
+                    <li class="skill-tag">Active Directory</li>
+                    <li class="skill-tag">DNS/DHCP</li>
+                    <li class="skill-tag">Virtualization</li>
+                    <li class="skill-tag">Network Troubleshooting</li>
+                    <li class="skill-tag">PowerShell Scripting</li>
+                </ul>
+            </section>
 
-            <h3>Security Concepts</h3>
-            <ul class="skills-list">
-                <li class="skill-tag">Zero Trust</li>
-                <li class="skill-tag">Application Allowlisting</li>
-                <li class="skill-tag">Least Privilege</li>
-                <li class="skill-tag">Endpoint Protection</li>
-                <li class="skill-tag">Network Segmentation</li>
-            </ul>
+            <section>
+                <h3>Security Concepts</h3>
+                <ul class="skills-list">
+                    <li class="skill-tag">Zero Trust</li>
+                    <li class="skill-tag">Application Allowlisting</li>
+                    <li class="skill-tag">Least Privilege</li>
+                    <li class="skill-tag">Endpoint Protection</li>
+                    <li class="skill-tag">Network Segmentation</li>
+                </ul>
+            </section>
             
-            <h3>Professional Skills</h3>
-            <ul class="skills-list">
-                <li class="skill-tag">Problem Solving</li>
-                <li class="skill-tag">Technical Documentation</li>
-                <li class="skill-tag">Customer Service</li>
-                <li class="skill-tag">Time Management</li>
-                <li class="skill-tag">Team Collaboration</li>
-            </ul>
-        </section>
+            <section>
+                <h3>Professional Skills</h3>
+                <ul class="skills-list">
+                    <li class="skill-tag">Problem Solving</li>
+                    <li class="skill-tag">Technical Documentation</li>
+                    <li class="skill-tag">Customer Service</li>
+                    <li class="skill-tag">Time Management</li>
+                    <li class="skill-tag">Team Collaboration</li>
+                </ul>
+            </section>
+        </article>
     </main>
 
     <!-- Footer -->
     <footer>
         <div class="container">
             <p>&copy; 2025, Kian Preble. All rights reserved.</p>
-            <div class="social-links">
-                <a href="https://linkedin.com/in/kian-preble" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/kianpreble" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="mailto:kianpreble@gmail.com"><i class="fas fa-envelope"></i></a>
-            </div>
+            <nav class="social-links" aria-label="Social media links">
+                <a href="https://linkedin.com/in/kian-preble" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/kianpreble" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="mailto:kianpreble@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            </nav>
         </div>
     </footer>
 
@@ -633,16 +661,16 @@
         // Highlight active navigation link
         document.addEventListener('DOMContentLoaded', function() {
             const navLinks = document.querySelectorAll('.nav-links a');
-            const sections = document.querySelectorAll('section');
+            const articles = document.querySelectorAll('article');
             
             window.addEventListener('scroll', function() {
                 let current = '';
                 
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    const sectionHeight = section.clientHeight;
-                    if (scrollY >= (sectionTop - 200)) {
-                        current = section.getAttribute('id');
+                articles.forEach(article => {
+                    const articleTop = article.offsetTop;
+                    const articleHeight = article.clientHeight;
+                    if (scrollY >= (articleTop - 200)) {
+                        current = article.getAttribute('id');
                     }
                 });
                 
