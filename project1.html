@@ -6,7 +6,6 @@
     <title>Netbox Power Planning Project - Kian Preble</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Color Palette */
         :root {
             --deep-blue: #1a2b4c;
             --electric-blue: #2a75b3;
@@ -227,7 +226,7 @@
             padding: var(--spacing-xl) 0;
         }
 
-        section {
+        article {
             margin-bottom: var(--spacing-lg);
             background: white;
             padding: var(--spacing-lg);
@@ -237,7 +236,7 @@
             border-left: 4px solid var(--electric-blue);
         }
 
-        section:hover {
+        article:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow-lg);
         }
@@ -264,6 +263,12 @@
             color: var(--electric-blue);
             margin-bottom: var(--spacing-xs);
             font-size: 1.3rem;
+        }
+
+        h4 {
+            color: var(--electric-blue);
+            margin-bottom: var(--spacing-xs);
+            font-size: 1.1rem;
         }
 
         .section-item {
@@ -500,7 +505,7 @@
                 font-size: 2rem;
             }
             
-            section {
+            article {
                 padding: var(--spacing-md);
             }
             
@@ -523,7 +528,7 @@
                 display: none;
             }
             
-            section {
+            article {
                 box-shadow: none;
                 border: 1px solid #ddd;
                 page-break-inside: avoid;
@@ -540,16 +545,52 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
-        section {
+        article {
             animation: fadeIn 0.6s ease-out;
         }
         
-        /* Section icons */
-        #objective h2::before { content: "\f0a1"; font-family: "Font Awesome 5 Free"; font-weight: 900; }
-        #education h2::before { content: "\f19d"; font-family: "Font Awesome 5 Free"; font-weight: 900; }
-        #experience h2::before { content: "\f0b1"; font-family: "Font Awesome 5 Free"; font-weight: 900; }
-        #projects h2::before { content: "\f0eb"; font-family: "Font Awesome 5 Free"; font-weight: 900; }
-        #skills h2::before { content: "\f085"; font-family: "Font Awesome 5 Free"; font-weight: 900; }
+        .image-container {
+            position: relative;
+            margin: var(--spacing-lg) 0;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .image-container img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.5s ease;
+        }
+        
+        .image-container:hover img {
+            transform: scale(1.03);
+        }
+        
+        .image-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: var(--spacing-sm);
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        /* Screen reader only text for accessibility */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
     </style>
 </head>
 <body>
@@ -559,7 +600,7 @@
             <img src="headshot.jpg" alt="Kian Preble" class="profile-img">
             <h1>Kian Preble</h1>
             <p>Data Center Infrastructure Specialist</p>
-            <div class="contact-info">
+            <address class="contact-info">
                 <div class="contact-item">
                     <i class="fas fa-envelope"></i>
                     <a href="mailto:kianpreble@gmail.com">kianpreble@gmail.com</a>
@@ -568,14 +609,14 @@
                     <i class="fab fa-linkedin"></i>
                     <a href="https://linkedin.com/in/kian-preble" target="_blank">linkedin.com/in/kian-preble</a>
                 </div>
-            </div>
+            </address>
         </div>
     </header>
 
     <!-- Navigation -->
     <nav>
         <div class="container nav-container">
-            <button class="menu-toggle" id="menuToggle">
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
                 <i class="fas fa-bars"></i>
             </button>
             <ul class="nav-links" id="navLinks">
@@ -590,154 +631,173 @@
     <main class="container">
         <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Resume</a>
         
-        <section>
-            <h1>Netbox Power Planning Implementation</h1>
-            <p class="date">Completed: Current | Professional Project - Data Center Infrastructure</p>
+        <article>
+            <header>
+                <h1>Netbox Power Planning Implementation</h1>
+                <p class="date">Completed: Current | Professional Project - Data Center Infrastructure</p>
+            </header>
 
-            <!-- Project Image -->
-            <img src="powermapping.png" alt="Data Center Power Infrastructure" class="project-image">
+            <figure class="image-container">
+                <img src="powermapping.png" alt="Netbox power mapping interface showing data center power distribution hierarchy">
+                <figcaption class="image-caption">Netbox power mapping interface displaying data center power distribution hierarchy</figcaption>
+            </figure>
 
-            <h2>Project Overview</h2>
-            <p>This project involved implementing Netbox as a comprehensive power planning and management solution for our enterprise data center. The system tracks power capacity, utilization, and connectivity from the utility feed down to individual server power supplies, providing complete visibility into our power infrastructure.</p>
-            
-            <div class="project-highlights">
-                <div class="highlight-card">
-                    <h3>Business Challenge</h3>
-                    <ul>
-                        <li>Lack of centralized power capacity tracking</li>
-                        <li>Manual power planning processes</li>
-                        <li>Difficulty forecasting power needs</li>
-                        <li>Inefficient incident response for power issues</li>
-                    </ul>
-                </div>
+            <section aria-labelledby="overview">
+                <h2 id="overview">Project Overview</h2>
+                <p>This project involved implementing Netbox as a comprehensive power planning and management solution for our enterprise data center. The system tracks power capacity, utilization, and connectivity from the utility feed down to individual server power supplies, providing complete visibility into our power infrastructure.</p>
                 
-                <div class="highlight-card">
-                    <h3>Technical Solution</h3>
-                    <ul>
-                        <li>Custom Netbox power modeling plugins</li>
-                        <li>API integrations with monitoring systems</li>
-                        <li>Automated power capacity reporting</li>
-                        <li>Real-time power utilization dashboards</li>
-                    </ul>
-                </div>
-            </div>
+                <section class="project-highlights" aria-labelledby="challenges-solutions">
+                    <h3 id="challenges-solutions" class="sr-only">Challenges and Solutions</h3>
+                    <article class="highlight-card">
+                        <h4>Business Challenge</h4>
+                        <ul>
+                            <li>Lack of centralized power capacity tracking</li>
+                            <li>Manual power planning processes</li>
+                            <li>Difficulty forecasting power needs</li>
+                            <li>Inefficient incident response for power issues</li>
+                        </ul>
+                    </article>
+                    
+                    <article class="highlight-card">
+                        <h4>Technical Solution</h4>
+                        <ul>
+                            <li>Custom Netbox power modeling plugins</li>
+                            <li>API integrations with monitoring systems</li>
+                            <li>Automated power capacity reporting</li>
+                            <li>Real-time power utilization dashboards</li>
+                        </ul>
+                    </article>
+                </section>
+            </section>
 
-            <div class="feature-grid">
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <i class="fas fa-bolt"></i>
+            <section aria-labelledby="features">
+                <h2 id="features">Key Features</h2>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>Power Capacity Tracking</h3>
+                        <p>Real-time monitoring of available power capacity at each distribution level</p>
                     </div>
-                    <h3>Power Capacity Tracking</h3>
-                    <p>Real-time monitoring of available power capacity at each distribution level</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <i class="fas fa-project-diagram"></i>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <h3>Connectivity Mapping</h3>
+                        <p>Complete power path visualization from utility to device level</p>
                     </div>
-                    <h3>Connectivity Mapping</h3>
-                    <p>Complete power path visualization from utility to device level</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <i class="fas fa-chart-line"></i>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Utilization Analytics</h3>
+                        <p>Historical trending and predictive capacity planning</p>
                     </div>
-                    <h3>Utilization Analytics</h3>
-                    <p>Historical trending and predictive capacity planning</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <i class="fas fa-exclamation-triangle"></i>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <h3>Alerting & Reporting</h3>
+                        <p>Proactive notifications for capacity thresholds and issues</p>
                     </div>
-                    <h3>Alerting & Reporting</h3>
-                    <p>Proactive notifications for capacity thresholds and issues</p>
                 </div>
-            </div>
+            </section>
             
-            <h2>Implementation Details</h2>
-            <div class="data-center-grid">
-                <div class="dc-item">
-                    <div class="dc-caption">
-                        <h3>Power Distribution Mapping</h3>
-                        <p>Modeled complete power distribution hierarchy including PDUs, panels, and circuits</p>
+            <section aria-labelledby="implementation">
+                <h2 id="implementation">Implementation Details</h2>
+                <div class="data-center-grid">
+                    <div class="dc-item">
+                        <div class="dc-caption">
+                            <h3>Power Distribution Mapping</h3>
+                            <p>Modeled complete power distribution hierarchy including PDUs, panels, and circuits</p>
+                        </div>
+                    </div>
+                    
+                    <div class="dc-item">
+                        <div class="dc-caption">
+                            <h3>Rack Power Planning</h3>
+                            <p>Implemented per-rack power capacity tracking and allocation</p>
+                        </div>
+                    </div>
+                    
+                    <div class="dc-item">
+                        <div class="dc-caption">
+                            <h3>Integration & Automation</h3>
+                            <p>Connected Netbox with existing monitoring systems for real-time data</p>
+                        </div>
                     </div>
                 </div>
+            </section>
+            
+            <section aria-labelledby="technical">
+                <h2 id="technical">Technical Implementation</h2>
+                <div class="project-highlights">
+                    <article class="highlight-card">
+                        <h3>Custom Netbox Development</h3>
+                        <p>Extended Netbox's core functionality with custom models for power capacity tracking, creating specialized object types for power distribution units, circuits, and power connections that are not natively supported.</p>
+                    </article>
+                    
+                    <article class="highlight-card">
+                        <h3>API Integration Architecture</h3>
+                        <p>Developed REST API integrations with power monitoring systems (PDU controllers, UPS systems) to automatically pull real-time power utilization data into Netbox, eliminating manual data entry.</p>
+                    </article>
+                </div>
+            </section>
+            
+            <section aria-labelledby="challenges">
+                <h2 id="challenges">Key Challenges & Solutions</h2>
+                <p><strong>Challenge:</strong> Integrating disparate power monitoring systems with varying data formats and API structures.</p>
+                <p><strong>Solution:</strong> Created a middleware abstraction layer that normalizes data from different systems into a standard format for Netbox consumption.</p>
                 
-                <div class="dc-item">
-                    <div class="dc-caption">
-                        <h3>Rack Power Planning</h3>
-                        <p>Implemented per-rack power capacity tracking and allocation</p>
-                    </div>
-                </div>
+                <p><strong>Challenge:</strong> Modeling complex power redundancy scenarios (N+1, 2N, A/B power feeds).</p>
+                <p><strong>Solution:</strong> Developed custom relationship models in Netbox to accurately represent and calculate capacity in redundant power scenarios.</p>
                 
-                <div class="dc-item">
-                    <div class="dc-caption">
-                        <h3>Integration & Automation</h3>
-                        <p>Connected Netbox with existing monitoring systems for real-time data</p>
-                    </div>
-                </div>
-            </div>
+                <p><strong>Challenge:</strong> Ensuring data accuracy between physical infrastructure and digital records.</p>
+                <p><strong>Solution:</strong> Implemented QR code labeling system for physical assets that syncs with Netbox inventory through mobile scanning applications.</p>
+            </section>
             
-            <h2>Technical Implementation</h2>
-            <div class="project-highlights">
-                <div class="highlight-card">
-                    <h3>Custom Netbox Development</h3>
-                    <p>Extended Netbox's core functionality with custom models for power capacity tracking, creating specialized object types for power distribution units, circuits, and power connections that are not natively supported.</p>
-                </div>
+            <section aria-labelledby="skills">
+                <h2 id="skills">Skills Developed & Applied</h2>
+                <ul class="skills-list">
+                    <li class="skill-tag">Netbox Configuration & Customization</li>
+                    <li class="skill-tag">REST API Integration</li>
+                    <li class="skill-tag">Data Center Power Infrastructure</li>
+                    <li class="skill-tag">Capacity Planning</li>
+                    <li class="skill-tag">Systems Integration</li>
+                    <li class="skill-tag">Documentation & Training</li>
+                    <li class="skill-tag">Project Management</li>
+                </ul>
+            </section>
+            
+            <section aria-labelledby="outcomes">
+                <h2 id="outcomes">Business Impact & Outcomes</h2>
+                <p>The Netbox power planning implementation has transformed our data center operations with measurable improvements:</p>
                 
-                <div class="highlight-card">
-                    <h3>API Integration Architecture</h3>
-                    <p>Developed REST API integrations with power monitoring systems (PDU controllers, UPS systems) to automatically pull real-time power utilization data into Netbox, eliminating manual data entry.</p>
+                <div class="project-highlights">
+                    <article class="highlight-card">
+                        <h3>Operational Efficiency</h3>
+                        <p>Reduced power capacity planning time through automated reporting and visualization tools.</p>
+                    </article>
+                    
+                    <article class="highlight-card">
+                        <h3>Risk Mitigation</h3>
+                        <p>Eliminated capacity over-subscription risks with real-time utilization monitoring and predictive analytics.</p>
+                    </article>
                 </div>
-            </div>
-            
-            <h2>Key Challenges & Solutions</h2>
-            <p><strong>Challenge:</strong> Integrating disparate power monitoring systems with varying data formats and API structures.</p>
-            <p><strong>Solution:</strong> Created a middleware abstraction layer that normalizes data from different systems into a standard format for Netbox consumption.</p>
-            
-            <p><strong>Challenge:</strong> Modeling complex power redundancy scenarios (N+1, 2N, A/B power feeds).</p>
-            <p><strong>Solution:</strong> Developed custom relationship models in Netbox to accurately represent and calculate capacity in redundant power scenarios.</p>
-            
-            <p><strong>Challenge:</strong> Ensuring data accuracy between physical infrastructure and digital records.</p>
-            <p><strong>Solution:</strong> Implemented QR code labeling system for physical assets that syncs with Netbox inventory through mobile scanning applications.</p>
-            
-            <h2>Skills Developed & Applied</h2>
-            <ul class="skills-list">
-                <li class="skill-tag">Netbox Configuration & Customization</li>
-                <li class="skill-tag">REST API Integration</li>
-                <li class="skill-tag">Data Center Power Infrastructure</li>
-                <li class="skill-tag">Capacity Planning</li>
-                <li class="skill-tag">Systems Integration</li>
-                <li class="skill-tag">Documentation & Training</li>
-                <li class="skill-tag">Project Management</li>
-            </ul>
-            
-            <h2>Business Impact & Outcomes</h2>
-            <p>The Netbox power planning implementation has transformed our data center operations with measurable improvements:</p>
-            
-            <div class="project-highlights">
-                <div class="highlight-card">
-                    <h3>Operational Efficiency</h3>
-                    <p>Reduced power capacity planning time through automated reporting and visualization tools.</p>
-                </div>
-                
-                <div class="highlight-card">
-                    <h3>Risk Mitigation</h3>
-                    <p>Eliminated capacity over-subscription risks with real-time utilization monitoring and predictive analytics.</p>
-                </div>
-            </div>
-
-        </section>
+            </section>
+        </article>
     </main>
 
     <!-- Footer -->
     <footer>
         <div class="container">
             <p>&copy; 2025 Kian Preble. All rights reserved.</p>
-            <div class="social-links">
-                <a href="https://linkedin.com/in/kian-preble" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/kianpreble" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="mailto:kianpreble@gmail.com"><i class="fas fa-envelope"></i></a>
-            </div>
+            <nav class="social-links" aria-label="Social media links">
+                <a href="https://linkedin.com/in/kian-preble" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/kianpreble" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="mailto:kianpreble@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            </nav>
         </div>
     </footer>
 
