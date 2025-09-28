@@ -6,7 +6,6 @@
     <title>Pi-hole Network Monitoring - Kian Preble</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        
         /* Color Palette */
         :root {
             --deep-blue: #1a2b4c;
@@ -228,7 +227,7 @@
             padding: var(--spacing-xl) 0;
         }
 
-        section {
+        article {
             margin-bottom: var(--spacing-lg);
             background: white;
             padding: var(--spacing-lg);
@@ -238,7 +237,7 @@
             border-left: 4px solid var(--electric-blue);
         }
 
-        section:hover {
+        article:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow-lg);
         }
@@ -265,6 +264,12 @@
             color: var(--electric-blue);
             margin-bottom: var(--spacing-xs);
             font-size: 1.3rem;
+        }
+
+        h4 {
+            color: var(--electric-blue);
+            margin-bottom: var(--spacing-xs);
+            font-size: 1.1rem;
         }
 
         .section-item {
@@ -528,7 +533,7 @@
                 font-size: 2rem;
             }
             
-            section {
+            article {
                 padding: var(--spacing-md);
             }
             
@@ -555,7 +560,7 @@
                 display: none;
             }
             
-            section {
+            article {
                 box-shadow: none;
                 border: 1px solid #ddd;
                 page-break-inside: avoid;
@@ -572,8 +577,51 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
-        section {
+        article {
             animation: fadeIn 0.6s ease-out;
+        }
+        
+        .image-container {
+            position: relative;
+            margin: var(--spacing-lg) 0;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .image-container img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.5s ease;
+        }
+        
+        .image-container:hover img {
+            transform: scale(1.03);
+        }
+        
+        .image-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: var(--spacing-sm);
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        /* Screen reader only text for accessibility */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
         }
     </style>
 </head>
@@ -584,7 +632,7 @@
             <img src="headshot.jpg" alt="Kian Preble" class="profile-img">
             <h1>Kian Preble</h1>
             <p>Network Security Student</p>
-            <div class="contact-info">
+            <address class="contact-info">
                 <div class="contact-item">
                     <i class="fas fa-envelope"></i>
                     <a href="mailto:kianpreble@gmail.com">kianpreble@gmail.com</a>
@@ -593,14 +641,14 @@
                     <i class="fab fa-linkedin"></i>
                     <a href="https://linkedin.com/in/kian-preble" target="_blank">linkedin.com/in/kian-preble</a>
                 </div>
-            </div>
+            </address>
         </div>
     </header>
 
     <!-- Navigation -->
     <nav>
         <div class="container nav-container">
-            <button class="menu-toggle" id="menuToggle">
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
                 <i class="fas fa-bars"></i>
             </button>
             <ul class="nav-links" id="navLinks">
@@ -615,191 +663,217 @@
     <main class="container">
         <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Resume</a>
         
-        <section>
-            <h1>Pi-hole Network Monitoring</h1>
-            <p class="date">Completed: Current | Personal Home Network Project</p>
+        <article>
+            <header>
+                <h1>Pi-hole Network Monitoring</h1>
+                <p class="date">Completed: Current | Personal Home Network Project</p>
+            </header>
             
-            <!-- Project Image -->
-            <img src="piholedashboard.png" alt="Pi-hole Network Monitoring Dashboard" class="project-image">
+            <!-- Improved Image Layout -->
+            <figure class="image-container">
+                <img src="piholedashboard.png" alt="Pi-hole Network Monitoring Dashboard showing blocking statistics and query logs">
+                <figcaption class="image-caption">Pi-hole dashboard displaying real-time network statistics and blocked queries</figcaption>
+            </figure>
             
-            <h2>Project Overview</h2>
-            <p>This project involved deploying Pi-hole, a Linux network-level advertisement and internet tracker blocking application, as a DNS sinkhole to protect all devices on my home network. The system blocks advertising domains at the DNS level, preventing ads from reaching connected devices without requiring client-side software.</p>
-            
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-number">98.7%</div>
-                    <div>Ads Blocked</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">19</div>
-                    <div>Devices Protected</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">1.1M</div>
-                    <div>Queries Processed</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">350K</div>
-                    <div>Domains Blocked</div>
-                </div>
-            </div>
+            <section aria-labelledby="overview">
+                <h2 id="overview">Project Overview</h2>
+                <p>This project involved deploying Pi-hole, a Linux network-level advertisement and internet tracker blocking application, as a DNS sinkhole to protect all devices on my home network. The system blocks advertising domains at the DNS level, preventing ads from reaching connected devices without requiring client-side software.</p>
+                
+                <section class="stats-grid" aria-labelledby="statistics">
+                    <h3 id="statistics" class="sr-only">Project Statistics</h3>
+                    <div class="stat-item">
+                        <div class="stat-number">98.7%</div>
+                        <div>Ads Blocked</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">19</div>
+                        <div>Devices Protected</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">1.1M</div>
+                        <div>Queries Processed</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">350K</div>
+                        <div>Domains Blocked</div>
+                    </div>
+                </section>
+            </section>
 
-            <div class="project-highlights">
-                <div class="highlight-card">
-                    <h3>Problem Statement</h3>
+            <section class="project-highlights" aria-labelledby="challenges-solutions">
+                <h3 id="challenges-solutions" class="sr-only">Challenges and Solutions</h3>
+                <article class="highlight-card">
+                    <h4>Problem Statement</h4>
                     <ul>
                         <li>Intrusive ads across all network devices</li>
                         <li>Privacy concerns with tracking scripts</li>
                         <li>Reduced network performance from ad content</li>
                         <li>Malware risk from malicious advertisements</li>
                     </ul>
-                </div>
+                </article>
                 
-                <div class="highlight-card">
-                    <h3>Technical Solution</h3>
+                <article class="highlight-card">
+                    <h4>Technical Solution</h4>
                     <ul>
                         <li>Raspberry Pi 4 deployment</li>
                         <li>Custom blocklists configuration</li>
                         <li>DNS-over-HTTPS implementation</li>
                         <li>Network-wide DNS redirection</li>
                     </ul>
-                </div>
-            </div>
+                </article>
+            </section>
 
-            <div class="feature-grid">
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <i class="fas fa-shield-alt"></i>
+            <section aria-labelledby="features">
+                <h2 id="features">Key Features</h2>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Network-Wide Protection</h3>
+                        <p>Blocks ads on all connected devices including IoT, smart TVs, and mobile devices</p>
                     </div>
-                    <h3>Network-Wide Protection</h3>
-                    <p>Blocks ads on all connected devices including IoT, smart TVs, and mobile devices</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <i class="fas fa-tachometer-alt"></i>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </div>
+                        <h3>Performance Boost</h3>
+                        <p>Faster page loads by preventing ad content from downloading</p>
                     </div>
-                    <h3>Performance Boost</h3>
-                    <p>Faster page loads by preventing ad content from downloading</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <i class="fas fa-user-shield"></i>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <h3>Privacy Enhancement</h3>
+                        <p>Blocks tracking scripts and analytics domains</p>
                     </div>
-                    <h3>Privacy Enhancement</h3>
-                    <p>Blocks tracking scripts and analytics domains</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <i class="fas fa-chart-bar"></i>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h3>Detailed Analytics</h3>
+                        <p>Comprehensive query logging and blocking statistics</p>
                     </div>
-                    <h3>Detailed Analytics</h3>
-                    <p>Comprehensive query logging and blocking statistics</p>
                 </div>
-            </div>
+            </section>
             
-            <h2>Implementation Details</h2>
-            <div class="network-grid">
-                <div class="network-item">
-                    <div class="network-caption">
-                        <h3>Hardware Configuration</h3>
-                        <p>Deployed on Raspberry Pi 4 with wired Ethernet connection for maximum reliability and performance</p>
+            <section aria-labelledby="implementation">
+                <h2 id="implementation">Implementation Details</h2>
+                <div class="network-grid">
+                    <div class="network-item">
+                        <div class="network-caption">
+                            <h3>Hardware Configuration</h3>
+                            <p>Deployed on Raspberry Pi 4 with wired Ethernet connection for maximum reliability and performance</p>
+                        </div>
+                    </div>
+                    
+                    <div class="network-item">
+                        <div class="network-caption">
+                            <h3>Network Architecture</h3>
+                            <p>Configured as primary DNS server with fallback to Cloudflare DNS for uninterrupted service</p>
+                        </div>
+                    </div>
+                    
+                    <div class="network-item">
+                        <div class="network-caption">
+                            <h3>Management Interface</h3>
+                            <p>Web-based admin panel for real-time monitoring and configuration changes</p>
+                        </div>
                     </div>
                 </div>
+            </section>
+            
+            <section aria-labelledby="technical">
+                <h2 id="technical">Technical Implementation</h2>
+                <div class="project-highlights">
+                    <article class="highlight-card">
+                        <h3>Custom Blocklists Configuration</h3>
+                        <p>Curated and combined multiple blocklist sources including Steven Black's hosts list, malware domains, and custom whitelist entries for services that require specific domains to function properly.</p>
+                    </article>
+                    
+                    <article class="highlight-card">
+                        <h3>DNS-over-HTTPS Integration</h3>
+                        <p>Configured Pi-hole to use DNS-over-HTTPS upstream resolvers for encrypted DNS queries, enhancing privacy and preventing ISP DNS manipulation.</p>
+                    </article>
+                </div>
+            </section>
+            
+            <section aria-labelledby="challenges">
+                <h2 id="challenges">Key Challenges & Solutions</h2>
+                <p><strong>Challenge:</strong> Some websites and services breaking due to over-aggressive blocking.</p>
+                <p><strong>Solution:</strong> Implemented careful whitelisting process and used Pi-hole's query log to identify and allow essential domains while maintaining protection.</p>
                 
-                <div class="network-item">
-                    <div class="network-caption">
-                        <h3>Network Architecture</h3>
-                        <p>Configured as primary DNS server with fallback to Cloudflare DNS for uninterrupted service</p>
-                    </div>
-                </div>
+                <p><strong>Challenge:</strong> Ensuring high availability and minimal downtime.</p>
+                <p><strong>Solution:</strong> Configured secondary DNS fallback and implemented monitoring alerts for Pi-hole service status.</p>
                 
-                <div class="network-item">
-                    <div class="network-caption">
-                        <h3>Management Interface</h3>
-                        <p>Web-based admin panel for real-time monitoring and configuration changes</p>
-                    </div>
-                </div>
-            </div>
+                <p><strong>Challenge:</strong> Managing family member expectations and troubleshooting.</p>
+                <p><strong>Solution:</strong> Created simple whitelist request process and educated family members on the benefits of ad blocking.</p>
+            </section>
             
-            <h2>Technical Implementation</h2>
-            <div class="project-highlights">
-                <div class="highlight-card">
-                    <h3>Custom Blocklists Configuration</h3>
-                    <p>Curated and combined multiple blocklist sources including Steven Black's hosts list, malware domains, and custom whitelist entries for services that require specific domains to function properly.</p>
-                </div>
+            <section aria-labelledby="skills">
+                <h2 id="skills">Skills Developed & Applied</h2>
+                <ul class="skills-list">
+                    <li class="skill-tag">Linux System Administration</li>
+                    <li class="skill-tag">DNS Configuration & Management</li>
+                    <li class="skill-tag">Raspberry Pi Deployment</li>
+                    <li class="skill-tag">Network Security</li>
+                    <li class="skill-tag">Shell Scripting</li>
+                    <li class="skill-tag">Network Troubleshooting</li>
+                    <li class="skill-tag">Privacy & Security Best Practices</li>
+                    <li class="skill-tag">Documentation</li>
+                </ul>
+            </section>
+            
+            <section aria-labelledby="outcomes">
+                <h2 id="outcomes">Performance Impact & Outcomes</h2>
+                <p>The Pi-hole implementation has significantly improved the home network experience with measurable benefits:</p>
                 
-                <div class="highlight-card">
-                    <h3>DNS-over-HTTPS Integration</h3>
-                    <p>Configured Pi-hole to use DNS-over-HTTPS upstream resolvers for encrypted DNS queries, enhancing privacy and preventing ISP DNS manipulation.</p>
+                <div class="project-highlights">
+                    <article class="highlight-card">
+                        <h3>Enhanced User Experience</h3>
+                        <p>Eliminated intrusive ads across all devices including mobile apps, smart TVs, and gaming consoles, creating a cleaner browsing experience.</p>
+                    </article>
+                    
+                    <article class="highlight-card">
+                        <h3>Improved Network Performance</h3>
+                        <p>Reduced bandwidth consumption by blocking ad content, resulting in faster page load times and more efficient bandwidth usage.</p>
+                    </article>
                 </div>
-            </div>
-            
-            <h2>Key Challenges & Solutions</h2>
-            <p><strong>Challenge:</strong> Some websites and services breaking due to over-aggressive blocking.</p>
-            <p><strong>Solution:</strong> Implemented careful whitelisting process and used Pi-hole's query log to identify and allow essential domains while maintaining protection.</p>
-            
-            <p><strong>Challenge:</strong> Ensuring high availability and minimal downtime.</p>
-            <p><strong>Solution:</strong> Configured secondary DNS fallback and implemented monitoring alerts for Pi-hole service status.</p>
-            
-            <p><strong>Challenge:</strong> Managing family member expectations and troubleshooting.</p>
-            <p><strong>Solution:</strong> Created simple whitelist request process and educated family members on the benefits of ad blocking.</p>
-            
-            <h2>Skills Developed & Applied</h2>
-            <ul class="skills-list">
-                <li class="skill-tag">Linux System Administration</li>
-                <li class="skill-tag">DNS Configuration & Management</li>
-                <li class="skill-tag">Raspberry Pi Deployment</li>
-                <li class="skill-tag">Network Security</li>
-                <li class="skill-tag">Shell Scripting</li>
-                <li class="skill-tag">Network Troubleshooting</li>
-                <li class="skill-tag">Privacy & Security Best Practices</li>
-                <li class="skill-tag">Documentation</li>
-            </ul>
-            
-            <h2>Performance Impact & Outcomes</h2>
-            <p>The Pi-hole implementation has significantly improved the home network experience with measurable benefits:</p>
-            
-            <div class="project-highlights">
-                <div class="highlight-card">
-                    <h3>Enhanced User Experience</h3>
-                    <p>Eliminated intrusive ads across all devices including mobile apps, smart TVs, and gaming consoles, creating a cleaner browsing experience.</p>
-                </div>
-                
-                <div class="highlight-card">
-                    <h3>Improved Network Performance</h3>
-                    <p>Reduced bandwidth consumption by blocking ad content, resulting in faster page load times and more efficient bandwidth usage.</p>
-                </div>
-            </div>
 
-            <div class="project-highlights">
-                <div class="highlight-card">
-                    <h3>Security Benefits</h3>
-                    <p>Blocked known malware domains and tracking scripts, reducing the attack surface and enhancing overall network security.</p>
+                <div class="project-highlights">
+                    <article class="highlight-card">
+                        <h3>Security Benefits</h3>
+                        <p>Blocked known malware domains and tracking scripts, reducing the attack surface and enhancing overall network security.</p>
+                    </article>
+                    
+                    <article class="highlight-card">
+                        <h3>Privacy Protection</h3>
+                        <p>Prevented data collection by advertising networks and analytics trackers across all connected devices.</p>
+                    </article>
                 </div>
-                
-                <div class="highlight-card">
-                    <h3>Privacy Protection</h3>
-                    <p>Prevented data collection by advertising networks and analytics trackers across all connected devices.</p>
-                </div>
-            </div>
+            </section>
             
-            <h2>Future Enhancements</h2>
-            <p>Planned improvements include setting up a redundant secondary Pi-hole instance for high availability, implementing custom blocklists for specific privacy concerns, and exploring integration with VPN services for mobile device protection outside the home network.</p>
+            <section aria-labelledby="future">
+                <h2 id="future">Future Enhancements</h2>
+                <p>Planned improvements include setting up a redundant secondary Pi-hole instance for high availability, implementing custom blocklists for specific privacy concerns, and exploring integration with VPN services for mobile device protection outside the home network.</p>
+            </section>
             
-            <h2>Project Documentation</h2>
-            <p>Maintained detailed documentation including setup procedures, troubleshooting guides, and configuration backups to ensure reproducibility and easy recovery in case of hardware failure.</p>
-        </section>
+            <section aria-labelledby="documentation">
+                <h2 id="documentation">Project Documentation</h2>
+                <p>Maintained detailed documentation including setup procedures, troubleshooting guides, and configuration backups to ensure reproducibility and easy recovery in case of hardware failure.</p>
+            </section>
+        </article>
     </main>
 
     <!-- Footer -->
     <footer>
         <div class="container">
             <p>&copy; 2025 Kian Preble. All rights reserved.</p>
-            <div class="social-links">
-                <a href="https://linkedin.com/in/kian-preble" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/kianpreble" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="mailto:kianpreble@gmail.com"><i class="fas fa-envelope"></i></a>
-            </div>
+            <nav class="social-links" aria-label="Social media links">
+                <a href="https://linkedin.com/in/kian-preble" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/kianpreble" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="mailto:kianpreble@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            </nav>
         </div>
     </footer>
 
