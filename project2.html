@@ -891,3 +891,37 @@
         </div>
     </div>
 </footer>
+
+<!-- JavaScript for mobile menu -->
+<script>
+    document.getElementById('menuToggle').addEventListener('click', function() {
+        document.getElementById('navLinks').classList.toggle('active');
+    });
+    
+    // Highlight active navigation link
+    document.addEventListener('DOMContentLoaded', function() {
+        const navLinks = document.querySelectorAll('.nav-links a');
+        const articles = document.querySelectorAll('article');
+        
+        window.addEventListener('scroll', function() {
+            let current = '';
+            
+            articles.forEach(article => {
+                const articleTop = article.offsetTop;
+                const articleHeight = article.clientHeight;
+                if (scrollY >= (articleTop - 200)) {
+                    current = article.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>
