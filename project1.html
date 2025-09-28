@@ -798,33 +798,19 @@
     </main>
 
     <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Kian Preble. All rights reserved.</p>
-            <nav class="social-links" aria-label="Social media links">
-                <a href="https://linkedin.com/in/kian-preble" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/kianpreble" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                <a href="mailto:kianpreble@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-            </nav>
+<footer style="background: #1a2b4c; color: white; text-align: center; padding: 3rem 0; width: 100%; margin-top: 3rem;">
+    <div class="container">
+        <p style="color: white; margin-bottom: 1.5rem;">&copy; 2025 Kian Preble. All rights reserved.</p>
+        <div class="social-links" style="display: flex; justify-content: center; gap: 1.5rem;">
+            <a href="https://linkedin.com/in/kian-preble" target="_blank" style="background: #2a75b3; color: white; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none;">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/kianpreble" target="_blank" style="background: #2a75b3; color: white; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none;">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="mailto:kianpreble@gmail.com" style="background: #2a75b3; color: white; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none;">
+                <i class="fas fa-envelope"></i>
+            </a>
         </div>
-    </footer>
-
-    <script>
-        document.getElementById('menuToggle').addEventListener('click', function() {
-            document.getElementById('navLinks').classList.toggle('active');
-        });
-        
-        // Highlight active navigation link
-        document.addEventListener('DOMContentLoaded', function() {
-            const navLinks = document.querySelectorAll('.nav-links a');
-            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-            
-            navLinks.forEach(link => {
-                if (link.getAttribute('href') === currentPage) {
-                    link.classList.add('active');
-                }
-            });
-        });
-    </script>
-</body>
-</html>
+    </div>
+</footer>
