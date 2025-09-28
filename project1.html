@@ -6,7 +6,6 @@
     <title>Netbox Power Planning Project - Kian Preble</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-
         /* Color Palette */
         :root {
             --deep-blue: #1a2b4c;
@@ -326,6 +325,9 @@
             border-radius: var(--border-radius);
             margin: var(--spacing-md) 0;
             box-shadow: var(--shadow-md);
+            height: 300px;
+            object-fit: cover;
+            width: 100%;
         }
 
         .back-link {
@@ -501,6 +503,18 @@
             section {
                 padding: var(--spacing-md);
             }
+            
+            .project-image {
+                height: 200px;
+            }
+            
+            .feature-icon {
+                font-size: 2rem;
+            }
+            
+            .highlight-card, .feature-item {
+                padding: var(--spacing-sm);
+            }
         }
 
         /* Print Styles */
@@ -579,6 +593,9 @@
         <section>
             <h1>Netbox Power Planning Implementation</h1>
             <p class="date">Completed: Current | Professional Project - Data Center Infrastructure</p>
+
+            <!-- Project Image -->
+            <img src="https://images.unsplash.com/photo-1597852074816-d933c7d2b988?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Data Center Power Infrastructure" class="project-image">
 
             <h2>Project Overview</h2>
             <p>This project involved implementing Netbox as a comprehensive power planning and management solution for our enterprise data center. The system tracks power capacity, utilization, and connectivity from the utility feed down to individual server power supplies, providing complete visibility into our power infrastructure.</p>
